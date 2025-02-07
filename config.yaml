@@ -1,23 +1,22 @@
 ---
-  name : General Config
+- name: General Config
 
-  hosts:  routers
-  task:
+  hosts: routers
 
-    - name: Add Banner
+  tasks:
 
-      ios_banner:
+  - name: Add Banner
 
-
-      banner:login
+    ios_banner:
+      banner: login
       text: |
-      Nicolas Cage is the Tiger King
-      state: present 
+        Nicolas Cage is the
+        Tiger King
+      state: present
 
-
-    - name: Merge provided configuration with device configuration
-      ios_interfaces:
+  - name: Merge provided configuration with device configuration
+    ios_interfaces:
       config:
-      - name:GigabitEthernet2
-        description: Configured and Merged by Ansible Network
-      enable: true
+        - name: GigabitEthernet2
+          description: Configured and Merged by Ansible Network
+          enabled: true
